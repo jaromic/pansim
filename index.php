@@ -45,13 +45,17 @@ $colors = [
     $(document).ready(function () {
         var data = {
             labels: [
-                <?php for ($i=0; $i<$stepCount; ++$i) { echo $i . ", "; } ?>
+                <?php for ($i = 0; $i < $stepCount; ++$i) {
+                echo $i . ", ";
+            } ?>
             ],
             datasets: [
                 <?php foreach($states as $state => $stateName) { ?>
                 {
                     yAxisId: 'value',
                     label: '<?php echo $stateName ?>',
+                    lineTension: 0,
+                    radius: 1,
                     backgroundColor: '  <?php echo $colors[$state]; ?>',
                     data: [
                         <?php
@@ -80,8 +84,9 @@ $colors = [
                         // ],
                         yAxes: [{
                             id: 'value',
-                            stacked: true
+                            stacked: true,
                         }]
+                        ,
                     }
                 }
             })

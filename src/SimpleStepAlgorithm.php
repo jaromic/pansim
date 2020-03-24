@@ -18,7 +18,7 @@ class SimpleStepAlgorithm implements StepAlgorithm
         switch($person->getState()) {
             case Person::STATE_INFECTED:
                 foreach($person->friends as $friend) {
-                    if ($friend->getState() == Person::STATE_SUSCEPTIBLE && random_int(0, 10) > 2) {
+                    if ($friend->getState() == Person::STATE_SUSCEPTIBLE && random_int(0, 10) > 0) {
                         $friend->setState(Person::STATE_INFECTED);
                     }
                 }
