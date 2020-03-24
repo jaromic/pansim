@@ -1,0 +1,17 @@
+{
+  "name": "jarosoft/pansim",
+  "description": "simple pandemics simulation",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael Jaros",
+      "email": "michael.jaros@jarosoft.at"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Jarosoft\\": "src"
+    }
+  }
+}
