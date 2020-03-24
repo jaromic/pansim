@@ -10,6 +10,7 @@ class Person
     const STATE_INFECTED = 1;
     const STATE_DECEASED = 2;
     const STATE_IMMUNE = 3;
+    const MAX_STATE = self::STATE_IMMUNE;
 
     /**
      * @var int
@@ -123,4 +124,12 @@ class Person
     function getState(): int {
         return $this->state;
     }
+
+    public static function getCountByState(int $state) {
+        $personsWithGivenState = array_filter(self::$population, function($person, $index) use($state) {
+            return $person->state == $state;
+        }, ARRAY_FILTER_USE_BOTH);
+        return count($personsWithGivenState);
+    }
+
 }

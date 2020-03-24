@@ -10,7 +10,7 @@ class SimplePopulationGenerator implements PopulationGenerator
     public function generate(int $populationCount, int $infectedToCreate)
     {
         for ($i = 0; $i < $populationCount; ++$i) {
-            Person::addPerson(2);
+            Person::addPerson(5);
         }
 
         $shuffledPopulation = Person::$population;
