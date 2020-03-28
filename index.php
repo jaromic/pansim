@@ -10,7 +10,7 @@ use Jarosoft\TickCounter;
 
 $populationGenerator = new SimplePopulationGenerator();
 $stepAlgorithm = new SimpleStepAlgorithm();
-$simulation = new Simulation($populationGenerator, $stepAlgorithm, 100, 1);
+$simulation = new Simulation($populationGenerator, $stepAlgorithm);
 
 $stepCount = 100;
 $simulation->run($stepCount);

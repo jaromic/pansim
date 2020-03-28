@@ -25,12 +25,12 @@ class Simulation
      */
     protected $statistics;
 
-    public function __construct(PopulationGenerator $populationGenerator, StepAlgorithm $stepAlgorithm, int $populationCount, int $infectedCount)
+    public function __construct(PopulationGenerator $populationGenerator, StepAlgorithm $stepAlgorithm)
     {
         $this->populationGenerator = $populationGenerator;
         $this->stepAlgorithm = $stepAlgorithm;
 
-        $this->populationGenerator->generate($populationCount, $infectedCount);
+        $this->populationGenerator->generate();
     }
 
     public function run($steps=1) {

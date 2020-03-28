@@ -38,6 +38,21 @@ class Person
     public static $count = 0;
 
     /**
+     * @var int
+     */
+    public $individualInfectionDuration;
+
+    /**
+     * @var bool
+     */
+    public $willDie;
+
+    /**
+     * @var float
+     */
+    public $individualDayOfDeath;
+
+    /**
      * @var array Person[]
      */
     public static $population = [];
@@ -55,6 +70,16 @@ class Person
     {
         $this->state = self::STATE_SUSCEPTIBLE;
         $this->stateStartTick = TickCounter::getInstance()->getTicks();
+        $this->individualInfectionDuration = Statistics::randomIntNormalDistribution(
+            SimpleParameterRepository::getInstance()->get('mean infected days'),
+            SimpleParameterRepository::getInstance()->get('sd infected days')
+        );
+        $this->willDie = (random_int(0,1000) / 1000) <= SimpleParameterRepository::getInstance()->get('lethality') ? true : false;
+        $this->individualDayOfDeath = Statistics::randomIntNormalDistribution(
+            SimpleParameterRepository::getInstance()->get('mean dod'),
+            SimpleParameterRepository::getInstance()->get('sd dod')
+        );
+
     }
 
     private function addRandomFriends(int $friendCount) {
